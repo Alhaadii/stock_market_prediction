@@ -1,0 +1,98 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static 'css/stylee.css' %}" />
+    <title>Stock Prediction Marekt With Mechine Learnin</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+       
+          <form action="{% url 'check' %}" method="POST" class="sign-in-form">
+            {% csrf_token %}
+            <h2 class="title">Login</h2>
+            {{message}}
+            <div class="mb-3 row">
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" name="User" required placeholder="Username" />
+              </div>
+          
+              <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="Pass" required  placeholder="Password" />
+              </div>
+          </div>
+        
+            <input type="submit" value="Login" class="btn solid" />
+            <p class="social-text">Or Login User in with social platforms</p>
+         
+          </form>
+          <form action="{% url 'register' %}" method="POST" class="sign-up-form">
+            {% csrf_token %}
+            <h2 class="title">Creating </h2>
+            {{message}}
+            
+            <div class="mb-3 row">
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" name="User" required placeholder="Username" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="Email" placeholder="Email" />
+              </div>
+              <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="Pass" required  placeholder="Password" />
+              </div>
+          </div>
+            <input type="submit" class="btn" value="Create" />
+            
+            <p class="social-text">Or Create User with social platforms</p>
+    
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>
+                Stock Prediction Marekt With Mechine Learning
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Create User
+            </button>
+          </div>
+          <img src="{% static 'log.svg' %}" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us ?</h3>
+            <p>
+                Stock Prediction Marekt With Mechine Learning
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Login in
+            </button>
+          </div>
+          <img src="{% static 'assets/register.svg' %}" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
+</html>

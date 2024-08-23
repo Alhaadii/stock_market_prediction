@@ -1,0 +1,117 @@
+{% load static %}
+{% include 'links.html' %}
+{% include 'sidebar.html' %}
+{% include 'header.html' %}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="bi bi-house"></i>
+      <a href="dashboard.php">Home</a>
+    </li>
+    <li class="breadcrumb-item" aria-current="page">Result Page</li>
+  </ol>
+
+            <div class="container-fluid pt-4 px-4   ">
+                <div class="row g-4">
+                    <div class="col-sm-10 col-xl-12">
+                        <div class="bg-white text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0 text-primary    ">Information</h6>
+                                <a href="https://finance.yahoo.com/quote/{{ticker_value}}?p={{ticker_value}}">Show More</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table text-start align-middle table-bordered table-hover mb-5">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-primary">Symbol</td>
+                                            <td class="text-primary">{{Symbol}}</td>
+                                        </tr>
+                                      
+                                        <tr>
+                                            <td class="text-primary">Name</td>
+                                            <td class="text-primary">{{Name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary">Last Sale</td>
+                                            <td class="text-primary">{{Last_Sale}}</td>
+                                        </tr>
+                                
+                                        <tr>
+                                            <td class="text-primary">Market Capital</td>
+                                            <td class="text-primary">{{Market_Cap}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary">Country</td>
+                                            <td class="text-primary">{{Country}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary">IPO Year</td>
+                                            <td class="text-primary">{{IPO_Year}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary">Volume</td>
+                                            <td class="text-primary">{{Volume}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary">Sector</td>
+                                            <td class="text-primary">{{Sector}}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="text-primary">Industry</td>
+                                            <td class="text-primary">{{Industry}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-primary">Accurency</td>
+                                            <td class="text-primary">{{confidence}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-white text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0 text-primary">Recent Stock price of {{ticker_value}}</h6>
+                                <a href="https://finance.yahoo.com/quote/{{ticker_value}}/chart?p={{ticker_value}}#">
+                                    Show More
+                                </a>
+                            </div>
+                            {% block Left_Plot %}
+
+                                {% autoescape off %}
+                                    {{ plot_div }}
+                                {% endautoescape %}
+
+                            {% endblock Left_Plot %}
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-white text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0 text-primary">Predicted Stock price of {{ticker_value}} for next {{number_of_days}} days</h6>
+                            </div>
+                            {% block Right_Plot %}
+
+                                {% autoescape off %}
+                                    {{ plot_div_pred }}
+                                {% endautoescape %}
+
+                            {% endblock Right_Plot %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End of Main Content -->
+
+
+            <!-- Footer Start -->
+{% include 'footer.html' %}

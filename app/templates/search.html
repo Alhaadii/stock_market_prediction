@@ -1,0 +1,66 @@
+{% load static %}
+{% include 'links.html' %}
+{% include 'sidebar.html' %}
+{% include 'header.html' %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        <i class="bi bi-house"></i>
+        <a href="dashboard.php">Home</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Prediction Page</li>
+    </ol>
+
+        {% comment %} <div class="col-4 col-sm-8 col-md-6 col-lg-5  col-xl-5"> {% endcomment %}
+            <div class="bg-white rounded p-8 p-sm-5 my-4 mx-3 ">
+               
+
+                <div class="d-flex align-items-center justify-content-center mb-2">
+                                <a href="../" class="">
+                                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Stock Market Predictor</h3>
+                                </a>
+                            </div>
+                            <div id="message" class="alert alert-danger" style="display:none;">
+                                <strong id="error"></strong>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="tickerinp" placeholder="Stock Name" name="ticker" autocomplete="on" required>
+                                <label for="tickerinp">Stock Name</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" id="days"  placeholder="Number of days" name="days" autocomplete="on" required>
+                                <label for="days">Number of Days</label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-4 text-primary  ">
+                               <h4> <a href="../ticker" class="text-primary">Search Ticker Value</a></h4>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="LoadURL()"><b>Predict</b></button>
+                            <script type="text/javascript">
+                                function LoadURL() {
+                                    var ticker = document.getElementById("tickerinp").value;
+                                    var days = document.getElementById("days").value;
+                                    if(ticker!="" && days!="") {
+
+                                        var server = window.location.origin;
+                                        var path = "/predict/" + ticker + "/" + days;
+                                        var url = server + path;
+                                        window.location.href = url;
+                                    }
+                                    else{
+                                        var messageDiv = document.getElementById("message");
+                                        messageDiv.classList.remove("display");
+                                        messageDiv.style.display = "block";  // Hubi in fariinta la muujiyo
+                                        document.getElementById("error").innerHTML = "Please fill the following fields";
+                                        setTimeout(function() {
+                                            $('#errorModal').modal('hide');
+                                        }, 5000);
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Widgets End -->
+
+{% include 'footer.html' %}

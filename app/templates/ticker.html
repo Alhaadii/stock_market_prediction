@@ -1,0 +1,46 @@
+{% load static %}
+
+{% include 'links.html' %}
+{% include 'sidebar.html' %}
+{% include 'header.html' %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="bi bi-house"></i>
+      <a href="dashboard.php">Home</a>
+    </li>
+    <li class="breadcrumb-item" aria-current="page">All Stock Symbols</li>
+  </ol>
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-white text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0 text-primary">All Stocks</h6>
+                        <a href="https://finance.yahoo.com/trending-tickers">Show All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-primary">
+                                    <th class="text-primary" scope="col">SN</th>
+                                    <th class="text-primary" scope="col">Stock____Symbol</th>
+                                    <th class="text-primary" scope="col">Stock Namee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if ticker_list %}
+                                {% for i in ticker_list %}
+                                <tr>
+                                    <td class="text-primary">{{i.SN}}</td>
+                                    <td class="text-primary">{{i.Symbol}}</td>
+                                    <td class="text-primary">{{i.Name}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Ends -->
+
+            {% include 'footer.html' %}

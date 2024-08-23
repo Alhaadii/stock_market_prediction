@@ -1,0 +1,37 @@
+{% load static %}
+{% include 'links.html' %}
+{% include 'sidebar.html' %}
+{% include 'header.html' %}
+<!-- Flex container -->
+<!-- Flex container with custom class -->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="bi bi-house"></i>
+      <a href="dashboard.php">Home</a>
+    </li>
+    <li class="breadcrumb-item" aria-current="page">Result Compering Stock</li>
+  </ol>
+
+<div class="d-flex flex-wrap justify-content-center  ">
+  
+        {% for key, value in data.items %}
+        <!-- Flex item -->
+        <div class="col-sm-12 col-xl-5 m-2">
+            <div class="bg-white text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0 text-primary">
+                        Predicted Stock price of {{ key }} for next {{ num_days }} days
+                    </h6>
+                </div>
+                {% autoescape off %}
+                    {{ value }}
+                {% endautoescape %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% include 'footer.html' %}

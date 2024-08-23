@@ -1,0 +1,138 @@
+{% load static %}
+
+
+<!-- App container starts -->
+<div class="app-container">
+  <!-- App header starts -->
+  <div class="app-header d-flex align-items-center">
+    <!-- Toggle buttons start -->
+    <div class="d-flex">
+      <button
+        class="btn btn-outline-primary me-2 toggle-sidebar"
+        id="toggle-sidebar"
+      >
+        <i class="bi bi-text-indent-left fs-5"></i>
+      </button>
+      <button class="btn btn-outline-primary me-2 pin-sidebar" id="pin-sidebar">
+        <i class="bi bi-text-indent-left fs-5"></i>
+      </button>
+    </div>
+    <!-- Toggle buttons end -->
+
+    <!-- App brand sm start -->
+    <div class="app-brand-sm d-md-none d-sm-block">
+      <a href="#">
+        <img src="{% static 'images/logo-sm.svg' %}" class="logo" alt="Bootstrap Gallery">
+      </a>
+    </div>
+    <!-- App brand sm end -->
+
+    <!-- App header actions start -->
+    <div class="header-actions">
+      <!-- Search container start -->
+
+
+      <div class="dropdown ms-3">
+        <a
+          id="userSettings"
+          class="dropdown-toggle"
+          href="#!"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="{% static 'images/userr.jpg' %}"
+            class="profile-avatar"
+            alt="Bootstrap Gallery"
+          />
+        </a>
+        <div class="dropdown-menu dropdown-menu-end shadow " >
+          
+           <a class="dropdown-item d-flex align-items-center text-primary" href="{% url   'profile' %}"><i
+                      class="bi bi-person fs-4 me-2 text-primary"></i>Profile</a> 
+
+          <a
+            class="dropdown-item d-flex align-items-center text-primary"
+            href="{% url   'logout' %}" ><i class="bi bi-escape fs-4 me-2 text-primary"></i>Logout</a
+          >
+        </div>
+      </div>
+      <!-- Header settings ends -->
+    </div>
+    <!-- App header actions end -->
+  </div>
+  <!-- App header ends -->
+</div>
+
+
+
+
+
+
+{% comment %} {% load static %}
+
+
+<!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="{% static 'image/user.png' %}" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Guest</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="/search" class="dropdown-item">Predict</a>
+                            <a href="/ticker" class="dropdown-item">Ticker Info</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End --> {% endcomment %}
+
+
+
+
+
+
+{% comment %} {% load static %}
+
+
+<!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="{% static 'image/user.png' %}" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Guest</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="/search" class="dropdown-item">Predict</a>
+                            <a href="/ticker" class="dropdown-item">Ticker Info</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End --> {% endcomment %}

@@ -1,0 +1,79 @@
+{% load static %}
+
+{% include 'links.html' %}
+{% include 'sidebar.html' %}
+{% include 'header.html' %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="bi bi-house"></i>
+      <a href="dashboard.php">Home</a>
+    </li>
+    <li class="breadcrumb-item" aria-current="page">Compering Stock Markets Page</li>
+  </ol>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
+</head>
+<body>
+    <div class="app-body">
+        <div class="d-flex align-items-center justify-content-center mb-2">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-white rounded p-8 p-sm-5 my-2 mx-3 ">
+            
+                <form method="post" action="{% url 'predict_two' %}">
+                    {% csrf_token %}
+                                <div class="d-flex align-items-center justify-content-left mb-2">
+                                    <a href="../" class="">
+                                        <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Compering Stock Markets</h3>
+                                    </a>
+                                </div>
+                                {% if error %}
+                                <div id="error" class="alert alert-danger">
+                                    <strong id="error"> {{error}}</strong>
+                                </div>
+                                {% endif %}
+                               
+                        <div>
+                            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Choose All Stock </h3>
+                            <select name="tickerka" required id="countries" multiple placeholder="hhhhhhhhhhhh">
+                               
+                                {% if ticker_list %}
+                                {% for i in ticker_list %}
+                                <option >{{i.Symbol}}</option>
+                                {% endfor %}
+                                {% endif %}
+                           
+                            </select>
+                            <div></div>
+                            <div class="form-floating mb-4 mt-4">
+                                <input type="text" class="form-control" id="days" required placeholder="Number of days" name="days" autocomplete="on" >
+                                <label for="days">Number of Days</label>
+                            </div>
+                     
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4"><b>Predictions</b></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>  
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
+
+    <script>
+        new MultiSelectTag('countries')  // id
+    </script>
+</body>
+</html>
+
+

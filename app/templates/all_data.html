@@ -1,0 +1,65 @@
+{% load static %}
+
+{% include 'links.html' %}
+{% include 'sidebar.html' %}
+{% include 'header.html' %}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="bi bi-house"></i>
+      <a href="dashboard.php">Home</a>
+    </li>
+    <li class="breadcrumb-item" aria-current="page">ALL Dataset Page</li>
+  </ol>
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-white text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0 text-primary">All Tickers</h6>
+                        <a href="https://finance.yahoo.com/trending-tickers">Show All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-primary">
+                             
+                                    <th class="text-primary" scope="col">Stock____Symbol</th>
+                                    <th class="text-primary" scope="col">Stock Namee</th>
+                                    <th class="text-primary" scope="col">Last__Sale</th>
+                                    <th class="text-primary" scope="col">Net__Change</th>
+                                    <th class="text-primary" scope="col">A__Change</th>
+                                    <th class="text-primary" scope="col">Market__Cap</th>
+                                    <th class="text-primary" scope="col">Country</th>
+                                    <th class="text-primary" scope="col">IPO__Year</th>
+                                    <th class="text-primary" scope="col">Volume</th>
+                                    <th class="text-primary" scope="col">Sector</th>
+                                    <th class="text-primary" scope="col">Industry</th>
+                               
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if ticker_list %}
+                                {% for i in ticker_list %}
+                                <tr>
+                            
+                                    <td class="text-primary">{{i.Symbol}}</td>
+                                    <td class="text-primary">{{i.Name}}</td>
+                                    <td class="text-primary">{{i.Last_Sale}}</td>
+                                    <td class="text-primary">{{i.Net_Change}}</td>
+                                    <td class="text-primary">{{i.A_Change}}</td>
+                                    <td class="text-primary">{{i.Market_Cap}}</td>
+                                    <td class="text-primary">{{i.Country}}</td>
+                                    <td class="text-primary">{{i.IPO_Year}}</td>
+                                    <td class="text-primary">{{i.Volume}}</td>
+                                    <td class="text-primary">{{i.Sector}}</td>
+                                    <td class="text-primary">{{i.Industry}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            {% include 'footer.html' %} 

@@ -1,0 +1,82 @@
+{% load static %}
+
+{% include 'links.html' %}
+{% include 'sidebar.html' %}
+{% include 'header.html' %}
+
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="bi bi-house"></i>
+      <a href="dashboard.php">Home</a>
+    </li>
+    <li class="breadcrumb-item" aria-current="page">User Profile</li>
+  </ol>
+
+
+
+       
+
+
+
+      <div class="container mt-5">
+        
+      
+          <div class="row mt-4">
+              <div class="col-md-12">
+                  <div class="card shadow-sm">
+                      <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="text-center mt-4 text-primary">Welcome to the Profile Page</h3>
+                            </div>
+                        </div>
+                        <form action="{% url 'edit' fill.0 %}" id="upload-form" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                              <div class="form-group">
+                                  <div class="row">
+                                      <div class="col-12">
+                                          <label for="ID">Username</label>
+                                            <input type="text" value="{{fill.0}}" class="form-control" required id="user" name="user">
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-6">
+                                          <label for="Class">Email</label>
+                                          <input type="email" value="{{fill.1}}" class="form-control" required id="Class" name="gmail" >
+                                      </div>
+                                       <div class="col-6">
+                                          <label for="pass">Password</label>
+                                          <input type="text" value="{{fill.2}}" class="form-control" required id="Email" name="pass">
+                                      </div>
+                                  </div>
+                                  
+                                  
+                                  <div class="row">
+                                        <div class="col-6">
+                                            <br>
+                                            <button type="submit" class="btn btn-primary col-12">Update</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <br>
+                                            <button type="reset" class="btn btn-danger col-12" >clear</button>
+                                        </div>
+                                    </div>                         
+      
+                              </div>
+      
+                              
+                        </form>
+                      </div>
+                  </div>
+              </div>
+      
+          </div>
+      </div>
+  
+
+        
+
+
+    
+{% include 'footer.html' %}
