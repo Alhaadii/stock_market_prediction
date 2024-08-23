@@ -1,1 +1,3 @@
-# this is stock market prediction
+# This is stock market prediction
+
+## University Graduation Project
